@@ -1,52 +1,43 @@
-
-
 <html lang="en">
-<script type="text/javascript"> // <![CDATA[
-if ( (navigator.userAgent.indexOf('Android') != -1) ) {
-  document.location = "https://play.google.com";
-} // ]]>
-</script>
+<script>
+    //https://www.bybrand.io/blog/badge-googleplay-appstore/
+    var androidUrl = "https://play.google.com"
 
-<script type="text/javascript"> // <![CDATA[
-if ((navigator.userAgent.indexOf('iPhone') != -1) || (navigator.userAgent.indexOf('iPod') != -1) || (navigator.userAgent.indexOf('iPad') != -1)) {
-  document.location = "https://apps.apple.com";
-} // ]]>
+    // https://toolbox.marketingtools.apple.com/en-us/app-store/us
+    var iosUrl = "https://apps.apple.com/us/app/google-chrome/id535886823?itscg=30200&itsct=apps_box_badge&mttnsubad=535886823"
+    var macosUrl = "https://apps.apple.com/us/app/google-chrome/id535886823?itscg=30200&itsct=apps_box_badge&mttnsubad=535886823"
+
+    if (navigator.userAgent.indexOf('Android') !== -1) {
+        document.location = "androidUrl";
+    } else if ((navigator.userAgent.indexOf('iPhone') !== -1) || (navigator.userAgent.indexOf('iPod') !== -1) || (navigator.userAgent.indexOf('iPad') !== -1)) {
+        document.location = iosUrl
+    } else if (navigator.userAgent.indexOf('Mac OS') !== -1) {
+        document.location = macosUrl
+    }
+
+    function setUrls() {
+        document.getElementById('iosUrl').href = iosUrl
+    }
 </script>
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/webstorm-icon-logo.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WS playground</title>
-  <link rel="stylesheet" href="/style.css">
+    <style>
+        html {
+            margin: 0 auto;
+            max-width: 600px;
+            align-content: center;
+        }
+    </style>
+    <meta charset="UTF-8"/>
+    <title>WS playground</title>
 </head>
-<body>
-<header class="logo">
-  <a href="https://www.jetbrains.com/webstorm/">
-    <img src="/webstorm-logo.svg" alt="WebStorm logo" width="344"
-         height="90">
-  </a>
-</header>
-<main id="app">
-  <h1 class="title">
-    Thank you for trying it out. <br /> Your first project is up and running
-    now.
-  </h1>
-  <section class="counter">
-    <div class="counter-info">
-      <p class="counter-text">Counter is</p>
-      <p class="counter-value" id="counter-value"></p>
-    </div>
-    <div class="counter-interaction">
-      <button id="increaseByOne" type="button">+1</button>
-      <button id="increaseByTwo" type="button">+2</button>
-      <button id="decreaseByOne" type="button">-1</button>
-      <button id="decreaseByTwo" type="button">-2</button>
-    </div>
-  </section>
-</main>
-<footer class="technologies">
-  <img src="/technologies.svg" alt="List of supported technologies">
-</footer>
-<script type="module" src="/src/main.js"></script>
+<body onload="setUrls()">
+
+<a id="iosUrl" style="display: inline-block;">
+    <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/white/en-us?releaseDate=1340841600"
+         alt="Download on the App Store"
+         style="width: 246px; height: 82px; vertical-align: middle; object-fit: contain;"/>
+</a>
+<br>
+
 </body>
 </html>
