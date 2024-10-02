@@ -1,0 +1,17 @@
+<html lang="en">
+<script>
+    var req = new XMLHttpRequest();
+    req.open('HEAD', document.location, false);
+    req.send(null);
+    function here() {
+        document.write("<br> Headers: " + JSON.stringify(req.getAllResponseHeaders()) + "</br>");
+        document.write("<br> UserAgent: " + JSON.stringify(navigator.userAgent) + "</br>");
+    }
+</script>
+
+<body>
+<h3><b>
+    <script>here();</script>
+</b></h3>
+</body>
+</html>
