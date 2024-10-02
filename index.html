@@ -8,7 +8,7 @@
     var macosUrl = "https://apps.apple.com/us/app/google-chrome/id535886823?itscg=30200&itsct=apps_box_badge&mttnsubad=535886823"
 
     if (navigator.userAgent.indexOf('Android') !== -1) {
-        document.location = "androidUrl";
+        document.location = androidUrl;
     } else if ((navigator.userAgent.indexOf('iPhone') !== -1) || (navigator.userAgent.indexOf('iPod') !== -1) || (navigator.userAgent.indexOf('iPad') !== -1)) {
         document.location = iosUrl
     } else if (navigator.userAgent.indexOf('Mac OS') !== -1) {
