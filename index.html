@@ -6,15 +6,6 @@
     // https://toolbox.marketingtools.apple.com/en-us/app-store/us
     var iosUrl = "https://apps.apple.com/us/app/google-chrome/id535886823?itscg=30200&itsct=apps_box_badge&mttnsubad=535886823"
     var macosUrl = "https://apps.apple.com/us/app/google-chrome/id535886823?itscg=30200&itsct=apps_box_badge&mttnsubad=535886823"
-
-    if (navigator.userAgent.indexOf('Android') !== -1) {
-        document.location = androidUrl;
-    } else if ((navigator.userAgent.indexOf('iPhone') !== -1) || (navigator.userAgent.indexOf('iPod') !== -1) || (navigator.userAgent.indexOf('iPad') !== -1)) {
-        document.location = iosUrl
-    } else if (navigator.userAgent.indexOf('Mac OS') !== -1) {
-        document.location = macosUrl
-    }
-
     function setUrls() {
         document.getElementById('iosUrl').href = iosUrl
     }
@@ -38,6 +29,37 @@
          style="width: 246px; height: 82px; vertical-align: middle; object-fit: contain;"/>
 </a>
 <br>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+    import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
 
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyAdt2mfII_pIBOR80ZPvHmuG96_Av1bBY4",
+        authDomain: "oleandr-web.firebaseapp.com",
+        projectId: "oleandr-web",
+        storageBucket: "oleandr-web.appspot.com",
+        messagingSenderId: "917011090838",
+        appId: "1:917011090838:web:9538d40170fc706fe7e1b7",
+        measurementId: "G-7HNHH6DVFM"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    logEvent(analytics, "pageLoaded")
+
+    if (navigator.userAgent.indexOf('Android') !== -1) {
+        document.location = androidUrl;
+    } else if ((navigator.userAgent.indexOf('iPhone') !== -1) || (navigator.userAgent.indexOf('iPod') !== -1) || (navigator.userAgent.indexOf('iPad') !== -1)) {
+        document.location = iosUrl
+    } else if (navigator.userAgent.indexOf('Mac OS') !== -1) {
+        document.location = macosUrl
+    }
+</script>
 </body>
 </html>
